@@ -33,8 +33,6 @@ public class BeerLoader implements CommandLineRunner {
                         .upc(383838382222L)
                         .price(new BigDecimal("12.95"))
                         .build());
-
-
             beerRepository.save(Beer.builder()
                     .beerName("Galaxy Cat")
                     .beerStyle("PALE_ALE")
