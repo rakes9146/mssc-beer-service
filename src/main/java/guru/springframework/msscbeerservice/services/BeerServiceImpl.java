@@ -7,9 +7,7 @@ import guru.springframework.msscbeerservice.web.mappers.BeerMapper;
 import guru.springframework.msscbeerservice.web.model.BeerDto;
 import guru.springframework.msscbeerservice.web.model.BeerPagedList;
 import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.Cache;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -87,6 +85,14 @@ public class BeerServiceImpl implements BeerService {
             return beerMapper.beerToBeerDto(beerRepository.
                     findById(beerId).orElseThrow(NotFoundException::new));
         }
+    }
+
+    @Cacheable(cacheNames = "beerUpc")
+    @Override
+    public BeerDto getByUpc(String beerUpc) {
+
+        return beerMapper.beerToBeerDto(beerRepository.findBeerByUpc(beerUpc));
+
     }
 
     @Override
