@@ -69,7 +69,7 @@ public class BeerController {
         return new ResponseEntity<>(beerService.getByUpc(beerUpc), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/beer")
     public ResponseEntity saveNewBeer(@RequestBody @Validated  BeerDto beerDto){
 
         return new ResponseEntity<>(beerService.saveNewBeer(beerDto), HttpStatus.CREATED);
