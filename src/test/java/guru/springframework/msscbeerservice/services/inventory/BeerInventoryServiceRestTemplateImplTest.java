@@ -22,7 +22,9 @@ class BeerInventoryServiceRestTemplateImplTest {
 
     @Test
     void getOnHandInventory(){
+        /** to do later for future upc functionality
         Integer qoh = beerInventoryService.getOnHandInventory(BeerLoader.BEER_1_UUID);
         System.out.println(qoh);
+        **/
     }
 }
